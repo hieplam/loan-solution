@@ -5,5 +5,21 @@
     <RootNamespace>loan_solution</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Settings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Settings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Settings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Settings\**" />
+  </ItemGroup>
+
 
 </Project>

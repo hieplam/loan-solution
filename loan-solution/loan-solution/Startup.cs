@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using loan_solution.Validators;
 
 namespace loan_solution
 {
@@ -25,6 +26,9 @@ namespace loan_solution
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ILoanValidator, LoanValidator>();
+            services.Configure<LoanConfig>(Configuration.GetSection(LoanConfig.LOAN_CONFIG));
+
             services.AddControllers();
         }
 
