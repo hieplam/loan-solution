@@ -4,17 +4,17 @@ using System.Threading.Tasks;
 
 namespace loan_solution.Validators
 {
-    public class BusinessNumberValidator: ILoanValidator
+    public class BusinessNumberValidator : ILoanValidator
     {
-        public IEnumerable<ValidateResult> Validate(LoanRequest request)
+        public IEnumerable<ValidatorResult> Validate(LoanRequest request)
         {
             var isBusinessNumber = IsValidBusinessNumber(request.BusinessNumber);
             if (!isBusinessNumber.Result)
             {
-                yield return new ValidateResult
+                yield return new ValidatorResult
                 {
-                    ValidateType = "BusinessNumber",
-                    Message = "BusinessNumber is not correct"
+                    Rule = "BusinessNumber",
+                    Message = "BusinessNumber is not correct",
                 };
             }
         }

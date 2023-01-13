@@ -2,16 +2,16 @@
 
 namespace loan_solution.Validators
 {
-    public class EmailValidator: ILoanValidator
+    public class EmailValidator : ILoanValidator
     {
-        public IEnumerable<ValidateResult> Validate(LoanRequest request)
+        public IEnumerable<ValidatorResult> Validate(LoanRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.EmailAddress))
             {
-                yield return new ValidateResult
+                yield return new ValidatorResult
                 {
-                    ValidateType = "Email",
-                    Message = "email is empty"
+                    Rule = "Email",
+                    Message = "email address is empty",
                 };
             }
         }

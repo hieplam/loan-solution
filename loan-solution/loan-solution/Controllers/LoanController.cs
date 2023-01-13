@@ -22,8 +22,36 @@ namespace loan_solution.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]LoanRequest request)
         {
-            var result = _loanValidator.Validate(request);
-            return new JsonResult(result);
+            var validatorResult = _loanValidator.Validate(request).ToList();
+            string finalDecision;
+            if (!validatorResult.Any())
+            {
+                finalDecision = LoanCheckDecision.Qualified.ToString();
+            }
+            else
+            {
+                var isHavingUnknown = validatorResult.Any(x => x.Decision == LoanCheckDecision.Unknown);
+                if (isHavingUnknown)
+                {
+                    finalDecision = LoanCheckDecision.Unknown.ToString();
+                }
+                else
+                {
+                    finalDecision = LoanCheckDecision.Unqualified.ToString();
+                }
+            }
+            
+            var checkLoanResponse = new CheckLoanResponse();
+            var validateResults = validatorResult.Select(x => new ValidationResult
+            {
+                Rule = x.Rule,
+                Message = x.Message,
+                Decision = x.Decision.ToString()
+            }).ToList();
+            checkLoanResponse.ValidationResults = validateResults;
+
+            checkLoanResponse.Decision = finalDecision;
+            return new JsonResult(checkLoanResponse);
         }
     }
 }

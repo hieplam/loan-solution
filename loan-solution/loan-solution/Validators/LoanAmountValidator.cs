@@ -12,13 +12,13 @@ namespace loan_solution.Validators
             _loanConfig = config;
         }
         
-        public IEnumerable<ValidateResult> Validate(LoanRequest request)
+        public IEnumerable<ValidatorResult> Validate(LoanRequest request)
         {
             if (request.LoanAmount <= _loanConfig.MinLoan || request.LoanAmount >= _loanConfig.MaxLoan)
             {
-                yield return new ValidateResult
+                yield return new ValidatorResult
                 {
-                    ValidateType = "LoanAmount",
+                    Rule = "LoanAmount",
                     Message = $"Loan amount should between {_loanConfig.MaxLoan} and {_loanConfig.MinLoan}"
                 };
             }

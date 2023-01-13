@@ -4,14 +4,14 @@ namespace loan_solution.Validators
 {
     public class LastNameValidator : ILoanValidator
     {
-        public IEnumerable<ValidateResult> Validate(LoanRequest request)
+        public IEnumerable<ValidatorResult> Validate(LoanRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.LastName))
             {
-                yield return new ValidateResult
+                yield return new ValidatorResult
                 {
-                    ValidateType = "LastName",
-                    Message = "LastName is empty"
+                    Rule = "LastName",
+                    Message = "LastName is empty",
                 };
             }
         }

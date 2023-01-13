@@ -5,14 +5,14 @@ namespace loan_solution.Validators
 {
     public class PhoneNumberValidator : ILoanValidator
     {
-        public IEnumerable<ValidateResult> Validate(LoanRequest request)
+        public IEnumerable<ValidatorResult> Validate(LoanRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.PhoneNumber) 
                 || !(IsMobileNumber(request.PhoneNumber) || IsLandlineNumber(request.PhoneNumber)))
             {
-                yield return new ValidateResult
+                yield return new ValidatorResult
                 {
-                    ValidateType = "PhoneNumber",
+                    Rule = "PhoneNumber",
                     Message = "phone number is not valid"
                 };
             }

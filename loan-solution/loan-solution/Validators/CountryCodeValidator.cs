@@ -2,16 +2,16 @@
 
 namespace loan_solution.Validators
 {
-    public class FirstNameValidator : ILoanValidator
+    public class CountryCodeValidator : ILoanValidator
     {
         public IEnumerable<ValidatorResult> Validate(LoanRequest request)
         {
-            if (string.IsNullOrWhiteSpace(request.FirstName))
+            if (string.IsNullOrWhiteSpace(request.CountryCode) || request.CountryCode.ToLower() != Constant.AUSTRILIA_COUNTRY_CODE)
             {
                 yield return new ValidatorResult
                 {
-                    Rule = "FirstName",
-                    Message = "Firstname is empty",
+                    Rule = "CountryCode",
+                    Message = "Country code is not valid",
                 };
             }
         }

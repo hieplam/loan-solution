@@ -8,9 +8,9 @@
         public string PhoneNumber { get; set; }
         public string BusinessNumber { get; set; }
         public float  LoanAmount { get; set; }
-        public float  CitizenshipStatus { get; set; }
+        public string CitizenshipStatus { get; set; }
         public int    TimeTrading { get; set; }
-        public int    CountryCode { get; set; }
-        public int    Industry { get; set; }
+        public string CountryCode { get; set; }
+        public string Industry { get; set; }
     }
 }

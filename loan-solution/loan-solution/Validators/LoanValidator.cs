@@ -7,7 +7,7 @@ namespace loan_solution.Validators
 {
     public interface ILoanValidator
     {
-        IEnumerable<ValidateResult> Validate(LoanRequest request);
+        IEnumerable<ValidatorResult> Validate(LoanRequest request);
     }
     
     public class LoanValidator : ILoanValidator
@@ -27,18 +27,23 @@ namespace loan_solution.Validators
                 new PhoneNumberValidator(),
                 new BusinessNumberValidator(),
                 new LoanAmountValidator(_loanConfig),
+                new CitizenshipStatusValidator(),
+                new TimeTradingValidator(_loanConfig),
+                new CountryCodeValidator(),
+                new IndustryValidator(_loanConfig),
             };
         }
-        public IEnumerable<ValidateResult> Validate(LoanRequest loan)
+        public IEnumerable<ValidatorResult> Validate(LoanRequest loan)
         {
             return _validators.SelectMany(validator => validator.Validate(loan));
         }
 
     }
 
-    public class ValidateResult
+    public class ValidatorResult
     {
-        public string ValidateType { get; set; }
+        public string Rule { get; set; }
         public string Message { get; set; }
+        public LoanCheckDecision Decision { get; set; }
     }
 }
