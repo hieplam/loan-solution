@@ -1,9 +1,11 @@
 # loan-solution
 
 API was found in 
-https://LOCAL_HOST/api/loan POST
-payload
+`https://LOCAL_HOST/api/loan POST`
 
+
+payload
+```
 {
     "FirstName": "hiep",
     "LastName": "Lam",
@@ -16,3 +18,4 @@ payload
     "CountryCode": "AU",
     "Industry": "industry3"
 }
+`
