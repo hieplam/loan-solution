@@ -18,4 +18,8 @@ payload
     "CountryCode": "AU",
     "Industry": "industry3"
 }
-`
+```
+
+Config was set at `appsettings.json` and stronged-typeed in `LoadConfig.cs`
+
+Test can be seperated per validator which not effect to any current code
