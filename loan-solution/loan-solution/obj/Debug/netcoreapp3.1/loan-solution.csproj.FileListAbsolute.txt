@@ -19,3 +19,11 @@ C:\repos\loan-solution\loan-solution\loan-solution\obj\Debug\netcoreapp3.1\loan-
 C:\repos\loan-solution\loan-solution\loan-solution\obj\Debug\netcoreapp3.1\loan-solution.dll
 C:\repos\loan-solution\loan-solution\loan-solution\obj\Debug\netcoreapp3.1\loan-solution.pdb
 C:\repos\loan-solution\loan-solution\loan-solution\obj\Debug\netcoreapp3.1\loan-solution.genruntimeconfig.cache
+C:\repos\loan-solution\loan-solution\loan-solution\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\repos\loan-solution\loan-solution\loan-solution\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\repos\loan-solution\loan-solution\loan-solution\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\repos\loan-solution\loan-solution\loan-solution\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\repos\loan-solution\loan-solution\loan-solution\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\repos\loan-solution\loan-solution\loan-solution\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\repos\loan-solution\loan-solution\loan-solution\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\repos\loan-solution\loan-solution\loan-solution\obj\Debug\netcoreapp3.1\loan-solution.csproj.CopyComplete

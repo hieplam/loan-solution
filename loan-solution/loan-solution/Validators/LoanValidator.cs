@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
 namespace loan_solution.Validators
@@ -14,10 +15,12 @@ namespace loan_solution.Validators
     {
         private readonly IEnumerable<ILoanValidator> _validators;
         private readonly LoanConfig _loanConfig;
+        private readonly IMemoryCache _memoryCache;
 
-        public LoanValidator(IOptions<LoanConfig> config)
+        public LoanValidator(IOptions<LoanConfig> config, IMemoryCache memoryCache)
         {
             _loanConfig = config.Value;
+            _memoryCache = memoryCache;
 
             _validators = new List<ILoanValidator>()
             {
@@ -25,7 +28,7 @@ namespace loan_solution.Validators
                 new LastNameValidator(),
                 new EmailValidator(),
                 new PhoneNumberValidator(),
-                new BusinessNumberValidator(),
+                new BusinessNumberValidator(_memoryCache),
                 new LoanAmountValidator(_loanConfig),
                 new CitizenshipStatusValidator(),
                 new TimeTradingValidator(_loanConfig),

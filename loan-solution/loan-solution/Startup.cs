@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using loan_solution.Validators;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace loan_solution
 {
@@ -28,7 +29,8 @@ namespace loan_solution
         {
             services.AddScoped<ILoanValidator, LoanValidator>();
             services.Configure<LoanConfig>(Configuration.GetSection(LoanConfig.LOAN_CONFIG));
-
+            
+            services.AddMemoryCache();
             services.AddControllers();
         }
 
